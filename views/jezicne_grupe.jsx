@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Button, Text } from 'react-native';
+import { StyleSheet, View, Button, Text, ActivityIndicator } from 'react-native';
 import { rootUrl, jezicneGrupe } from '../helpers/api_routes';
+import { styles } from '../styles/styles';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function JezicneGrupe(props) {
 	let id = props.route.params.id;
@@ -15,40 +17,37 @@ export default function JezicneGrupe(props) {
 
 	const mapItems = (items) => {
 		return items.map((item) => {
-			console.log(item)
+			console.log(item);
 			return (
-				<Button
+				<TouchableOpacity
+					style={styles.btn}
 					key={item.grupa}
-					title={item.vrijednost}
 					onPress={() =>
 						props.navigation.navigate('Stavke', {
 							lang: item.jezik
 						})}
-				/>
+				>
+					<Text style={styles.btnText}>{item.vrijednost}</Text>
+				</TouchableOpacity>
 			);
 		});
 	};
 
 	if (items) {
 		if (items.length) {
-			return (
-				<React.Fragment>
-					<View style={styles.container}>{items && mapItems(items)}</View>
-				</React.Fragment>
-			);
+			return <View style={styles.container}>{items && mapItems(items)}</View>;
 		} else {
-			return <Text>Nema pronađenih zapisa!</Text>;
+			return (
+				<View style={styles.containerCenter}>
+					<Text>Nema pronađenih zapisa!</Text>
+				</View>
+			);
 		}
 	} else {
-		return null;
+		return (
+			<View style={styles.containerCenter}>
+				<ActivityIndicator size="large" />
+			</View>
+		);
 	}
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center'
-	}
-});

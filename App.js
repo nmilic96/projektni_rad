@@ -10,6 +10,7 @@ import Jezici from './views/jezici';
 import JezicneGrupe from './views/jezicne_grupe';
 import Home from './views/home';
 import Stavke from './views/stavke';
+import Stavka from './views/stavka';
 
 const Stack = createStackNavigator();
 
@@ -32,6 +33,10 @@ export default function App() {
 				<Stack.Screen
 					name="Stavke"
 					component={Stavke}
+				/>
+				<Stack.Screen
+					name="Stavka"
+					component={Stavka}
 				/>
 			</Stack.Navigator>
 			<StatusBar style="auto" />

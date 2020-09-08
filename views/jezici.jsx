@@ -1,7 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, ActivityIndicator } from 'react-native';
 import { rootUrl, jezici } from '../helpers/api_routes';
+import { styles } from '../styles/styles';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function Jezici(props) {
 	let url = `${rootUrl}${jezici}`;
@@ -13,29 +15,29 @@ export default function Jezici(props) {
 
 	const mapItems = (items) => {
 		return items.map((item) => {
-			console.log(item)
+			console.log(item);
 			return (
-				<Button
-				style={{alignSelf: 'stretch'}}
+				<TouchableOpacity
+					style={styles.btn}
 					onPress={() =>
 						props.navigate('Jezične grupe', {
 							id: item.id
 						})}
 					key={item.id}
-					title={item.naziv}
-				/>
+				>
+					<Text style={styles.btnText}>{item.naziv}</Text>
+				</TouchableOpacity>
 			);
 		});
 	};
 
-	return <View style={styles.container}>{items && mapItems(items)}</View>;
-}
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center'
+	if (items) {
+		return <React.Fragment>{items && mapItems(items)}</React.Fragment>;
+	} else {
+		return (
+			<View style={styles.containerCenter}>
+				<ActivityIndicator size="large" />
+			</View>
+		);
 	}
-});
+}

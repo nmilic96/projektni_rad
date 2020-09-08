@@ -1,14 +1,12 @@
 import React from 'react';
 import { View, Button, Text } from 'react-native';
 import Jezici from './jezici';
+import { styles } from '../styles/styles';
 
-const Home = ({navigation}) => {
+export default function Home({navigation}) {
 	return (
-		<View>
-			<Text style={{fontSize: 20, fontWeight: 'bold'}}>Odaberi jezik</Text>
+		<View style={styles.container}>
 			<Jezici {...navigation} />
 		</View>
 	);
 };
-
-export default Home;
