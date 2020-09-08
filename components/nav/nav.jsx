@@ -1,27 +1,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 
-export default class Nav extends Component {
-	render() {
-		return (
-			<View style={styles.container}>
-				<Button
-					onPress={console.log('press')}
-					title="Learn More"
-					color="#841584"
-					accessibilityLabel="Learn more about this purple button"
-				/>
-				
-				<Button
-					onPress={console.log('press')}
-					title="Learn More"
-					color="#841584"
-					accessibilityLabel="Learn more about this purple button"
-				/>
-			</View>
-		);
-	}
-}
+export default function Nav(props) {
+	return (
+		<View style={styles.container}>
+
+		</View>
+	);
+};
 
 const styles = StyleSheet.create({
 	nav: {

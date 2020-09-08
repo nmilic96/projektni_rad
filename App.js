@@ -1,42 +1,40 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { rootUrl, languages } from './helpers/api_routes';
 import Nav from './components/nav/nav.jsx';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Jezici from './views/jezici';
+import JezicneGrupe from './views/jezicne_grupe';
+import Home from './views/home';
+import Stavke from './views/stavke';
+
+const Stack = createStackNavigator();
 
 export default function App() {
-	let url = `${rootUrl}${languages}`;
-	const [items, setItems] = useState(null)
-
-	useEffect(() => {
-		fetch(url).then((response) => response.json()).then((data) => setItems(data));
-	}, []);
-
-	const mapItems = (items) => {
-		return items.map(item => {
-			console.log(item)
-			return <Button key={item.id} title={item.naziv} />
-		})
-	}
-
 	return (
-			<React.Fragment>
-				<Nav />
-				<View style={styles.container}>
-					<p />
-					<Text>Open up App.js to start working on your app!</Text>
-					{items && mapItems(items)}
-					<StatusBar style="auto" />
-				</View>
-			</React.Fragment>
+		<NavigationContainer>
+			<Stack.Navigator>
+				<Stack.Screen
+					name="Početna"
+					component={Home}
+				/>
+				<Stack.Screen
+					name="Jezici"
+					component={Jezici}
+				/>
+				<Stack.Screen
+					name="Jezične grupe"
+					component={JezicneGrupe}
+				/>
+				<Stack.Screen
+					name="Stavke"
+					component={Stavke}
+				/>
+			</Stack.Navigator>
+			<StatusBar style="auto" />
+		</NavigationContainer>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center'
-	}
-});

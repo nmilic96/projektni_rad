@@ -17,7 +17,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "nmilic96"
     },
     "web": {
       "favicon": "./assets/favicon.png"
