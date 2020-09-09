@@ -34,4 +34,4 @@ Zapakiranu verziju aplikacije može se preuzeti:
 Upute za pokretanje zapakirane inačice aplikacije u iOS simulatorima: 
 - https://docs.expo.io/distribution/building-standalone-apps/     
 
-> To run it on your iOS Simulator, first build your expo project with the simulator flag by running expo build:ios -t simulator, then download the tarball with the link given upon completion when running expo build:status. Unpack the tar.gz by running tar -xvzf your-app.tar.gz. Then you can run it by starting an iOS Simulator instance, then running xcrun simctl install booted <app path> and xcrun simctl launch booted <app identifier>.
+> To run it on your iOS Simulator, first build your expo project with the simulator flag by running ```expo build:ios -t simulator```, then download the tarball with the link given upon completion when running ```expo build:status```. Unpack the ```tar.gz``` by running ```tar -xvzf your-app.tar.gz```. Then you can run it by starting an iOS Simulator instance, then running ```xcrun simctl install booted <app path>``` and ```xcrun simctl launch booted <app identifier>```.
