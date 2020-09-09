@@ -1,14 +1,19 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { StyleSheet, View, Button, Text, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Button, Text, ActivityIndicator, Image, Dimensions } from 'react-native';
 import { rootUrl, jezicneGrupe, stavke } from '../helpers/api_routes';
 import { styles } from '../styles/styles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 
 export default function Stavke(props) {
 	const [ items, setItems ] = useState([]);
+	const [ headerImg, setHeaderImg ] = useState(null);
 	let ref = useRef([]);
 
+	const dimensions = Dimensions.get('window');
+	const imageWidth = dimensions.width;
+
 	console.log('props', props);
+	console.log(headerImg);
 
 	useEffect(() => {
 		for (let i = 0; i < 30; i++) {
@@ -20,6 +25,12 @@ export default function Stavke(props) {
 				}
 			});
 		}
+
+		let imgUrl = `${rootUrl}/kategorija?id=${1}&grupa=2`;
+		fetch(imgUrl).then((response) => response.json()).then((data) => {
+			console.log('data', data);
+			setHeaderImg(data[0] && data[0].slikaPutanja);
+		});
 	}, []);
 
 	const mapItems = (items) => {
@@ -43,9 +54,14 @@ export default function Stavke(props) {
 
 	if (items.length) {
 		return (
-			<React.Fragment>
+			<ScrollView>
+				{headerImg ? (
+					<Image source={{ uri: headerImg }} style={{ height: 300, width: imageWidth }} />
+				) : (
+					<ActivityIndicator size="large" />
+				)}
 				<View style={styles.container}>{items && mapItems(items)}</View>
-			</React.Fragment>
+			</ScrollView>
 		);
 	} else {
 		return (

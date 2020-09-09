@@ -25,13 +25,14 @@ export const styles = StyleSheet.create({
 		height: 48,
 		backgroundColor: '#a31810',
 		marginBottom: 12,
-		textAlign: 'center',
 		justifyContent: "center"
 	},
 	btnText: {
 		color: '#fff',
-		fontWeight: '500',
-		fontSize: 14
+		fontWeight: '400',
+		fontSize: 14,
+		justifyContent: 'center',
+		textAlign: 'center'
 	},
 	heading: {
 		marginBottom: 24,
