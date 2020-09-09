@@ -27,7 +27,7 @@ Klijent aplikacija dostupna je na GooglePlay i iTunes Store servisima:
 - Android - https://play.google.com/store/apps/details?id=host.exp.exponent 
 - iOS - https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?path=apps%2fexponent 
 
-## Zapakirana verzija aplikacije
+## Zapakirana iOS verzija aplikacije
 Zapakiranu verziju aplikacije može se preuzeti:
 - https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/ios/%40nmilic96/projektni_zadatak-d8c1a1e0-b0e0-45f7-bb27-038ba5658903-simulator.tar.gz 
 
