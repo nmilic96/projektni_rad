@@ -10,7 +10,7 @@ export default function Records(props) {
 
 	useEffect(() => {
 		fetch(url).then((response) => response.json()).then((data) => setItems(data));
-	}, []);
+	}, [props]);
 
 	const mapItems = (items) => {
 		return items.map((item) => {

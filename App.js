@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Text, View, Modal } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -18,10 +18,15 @@ const Stack = createStackNavigator();
 export default function App() {
 	const [ lang, setLang ] = useState('hr');
 	const [ modalVisible, setModalVisible ] = useState(false);
+	const navRef = useRef();
+
+	useEffect(() => {
+		navRef.current?.navigate('Početna')
+	}, [lang])
 
 	return (
 		<React.Fragment>
-			<NavigationContainer>
+			<NavigationContainer ref={navRef}>
 				<Stack.Navigator
 					screenOptions={{
 						headerRight: () => (
@@ -54,25 +59,25 @@ export default function App() {
 					</View>
 				</View>
 				<StatusBar style="auto" />
+				{modalVisible && (
+					<View animationType="slide" transparent={false} style={styles.modal} visible={modalVisible}>
+						<TouchableOpacity
+							style={styles.closeBtn}
+							onPress={() => {
+								setModalVisible(!modalVisible);
+							}}
+						>
+							<Text style={{ fontSize: 28 }}>×</Text>
+						</TouchableOpacity>
+						<Langs
+							lang={lang}
+							setLang={setLang}
+							modalVisible={modalVisible}
+							setModalVisible={setModalVisible}
+						/>
+					</View>
+				)}
 			</NavigationContainer>
-			{modalVisible && (
-				<View animationType="slide" transparent={false} style={styles.modal} visible={modalVisible}>
-					<TouchableOpacity
-						style={styles.closeBtn}
-						onPress={() => {
-							setModalVisible(!modalVisible);
-						}}
-					>
-						<Text style={{ fontSize: 28 }}>×</Text>
-					</TouchableOpacity>
-					<Langs
-						lang={lang}
-						setLang={setLang}
-						modalVisible={modalVisible}
-						setModalVisible={setModalVisible}
-					/>
-				</View>
-			)}
 		</React.Fragment>
 	);
 }

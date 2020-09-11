@@ -11,7 +11,7 @@ export default function Record(props) {
 
 	useEffect(() => {
 		fetch(url).then((response) => response.json()).then((data) => setItem(data));
-	}, []);
+	}, [props]);
 
 	if (item) {
 		console.log(item);
