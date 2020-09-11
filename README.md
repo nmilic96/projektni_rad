@@ -27,6 +27,10 @@ Klijent aplikacija dostupna je na GooglePlay i iTunes Store servisima:
 - Android - https://play.google.com/store/apps/details?id=host.exp.exponent 
 - iOS - https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?path=apps%2fexponent 
 
+## Zapakiran Android verzija 
+Može se preuzeti na: 
+- https://expo.io/artifacts/0422b3a3-ec40-4dd2-8883-52f510eda32d
+
 ## Zapakirana iOS verzija aplikacije
 Zapakiranu verziju aplikacije može se preuzeti:
 - https://expo.io/artifacts/d066e022-2e18-47b3-8178-3b20763d9236
