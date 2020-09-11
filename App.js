@@ -10,8 +10,10 @@ import Groups from './views/groups';
 import Categories from './views/categories';
 import Records from './views/records';
 import Record from './views/record';
+import About from './views/about';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Langs from './components/langs';
+import Literature from './views/lit';
 
 const Stack = createStackNavigator();
 
@@ -48,14 +50,22 @@ export default function App() {
 					<Stack.Screen name="Kategorije" component={Categories} />
 					<Stack.Screen name="Zapisi" component={Records} />
 					<Stack.Screen name="Zapis" component={Record} />
+					<Stack.Screen name="O projektu">{(props) => <About {...props} lang={lang} />}</Stack.Screen>
+					<Stack.Screen name="Popis literature">{(props) => <Literature {...props} lang={lang} />}</Stack.Screen>
 				</Stack.Navigator>
 				<View style={styles.footer}>
 					<Text>{new Date().getFullYear()}</Text>
 					<View style={styles.row}>
-						<TouchableOpacity>
+						<TouchableOpacity onPress={() => {
+							navRef.current?.navigate('O projektu')
+						}}>
 							<Text style={styles.footerLink}>O projektu</Text>
 						</TouchableOpacity>
-						<Text style={styles.footerLink}>Popis literature</Text>
+						<TouchableOpacity onPress={() => {
+							navRef.current?.navigate('Popis literature')
+						}}>
+							<Text style={styles.footerLink}>Popis literature</Text>
+						</TouchableOpacity>
 					</View>
 				</View>
 				<StatusBar style="auto" />
