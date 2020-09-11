@@ -23,7 +23,7 @@ export default function Langs(props) {
 					key={item.id}
 				>
 					<Text
-						style={{ fontSize: 16, marginBottom: 24, fontWeight: props.lang === item.id ? '600' : '400' }}
+						style={{ fontSize: 16, marginBottom: 24, color: props.lang === item.id ? '#FF5722' : '#000' }}
 					>
 						{item.naziv}
 					</Text>
@@ -33,7 +33,7 @@ export default function Langs(props) {
 	};
 
 	if (items) {
-		return <View style={{ padding: 16 }}>{items && mapItems(items)}</View>;
+		return <View style={{ padding: 16, zIndex: 999 }}>{items && mapItems(items)}</View>;
 	} else {
 		return (
 			<View style={styles.containerCenter}>

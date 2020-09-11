@@ -21,44 +21,18 @@ export default function App() {
 
 	return (
 		<React.Fragment>
-			{modalVisible && (
-				<Modal
-					animationType="slide"
-					transparent={true}
-					style={styles.modal}
-					visible={modalVisible}
-					onRequestClose={() => {
-						Alert.alert('Modal has been closed.');
-					}}
-				>
-					<TouchableOpacity
-						style={styles.closeBtn}
-						onPress={() => {
-							setModalVisible(!modalVisible);
-						}}
-					>
-						<Text style={{ fontSize: 28 }}>×</Text>
-					</TouchableOpacity>
-					<Langs
-						lang={lang}
-						setLang={setLang}
-						modalVisible={modalVisible}
-						setModalVisible={setModalVisible}
-					/>
-				</Modal>
-			)}
 			<NavigationContainer>
 				<Stack.Navigator
 					screenOptions={{
 						headerRight: () => (
 							<View style={styles.row}>
-								<Text style={{marginRight: 16, textTransform: 'uppercase'}}>{lang}</Text>
+								<Text style={{ marginRight: 16, textTransform: 'uppercase' }}>{lang}</Text>
 								<TouchableOpacity
 									onPress={() => {
 										setModalVisible(!modalVisible);
 									}}
 								>
-									<Text style={{fontSize: 22, marginRight: 16}}>&#9776;</Text>
+									<Text style={{ fontSize: 22, marginRight: 16 }}>&#9776;</Text>
 								</TouchableOpacity>
 							</View>
 						)
@@ -81,6 +55,24 @@ export default function App() {
 				</View>
 				<StatusBar style="auto" />
 			</NavigationContainer>
+			{modalVisible && (
+				<View animationType="slide" transparent={false} style={styles.modal} visible={modalVisible}>
+					<TouchableOpacity
+						style={styles.closeBtn}
+						onPress={() => {
+							setModalVisible(!modalVisible);
+						}}
+					>
+						<Text style={{ fontSize: 28 }}>×</Text>
+					</TouchableOpacity>
+					<Langs
+						lang={lang}
+						setLang={setLang}
+						modalVisible={modalVisible}
+						setModalVisible={setModalVisible}
+					/>
+				</View>
+			)}
 		</React.Fragment>
 	);
 }

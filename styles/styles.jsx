@@ -24,17 +24,17 @@ export const styles = StyleSheet.create({
 		alignItems: 'center'
 	},
 	modal: {
-		alignSelf: 'stretch',
 		position: 'absolute',
 		top: 0,
 		left: 0,
 		right: 0,
 		bottom: 0,
-		zIndex: 2,
+		alignSelf: 'stretch',
+		zIndex: 20,
 		backgroundColor: '#FFF',
 		borderColor: '#FFF',
-		padding: 16
-		
+		padding: 16,
+		elevation: 24
 	},
 	closeBtn: {
 		padding: 16,

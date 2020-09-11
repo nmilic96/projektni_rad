@@ -5,7 +5,7 @@ import { styles } from '../styles/styles';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 
 export default function Categories(props) {
-	console.log(props)
+	console.log(props);
 	let url = `${rootUrl}${categories(props.route.params.id, props.route.params.lang)}`;
 	const [ items, setItems ] = useState(null);
 
@@ -13,10 +13,9 @@ export default function Categories(props) {
 		fetch(url).then((response) => response.json()).then((data) => setItems(data));
 	}, []);
 
-
 	const mapItems = (items) => {
 		return items.map((item) => {
-			console.log(item)
+			console.log(item);
 			return (
 				<TouchableOpacity
 					style={styles.btn}
@@ -34,7 +33,15 @@ export default function Categories(props) {
 	};
 
 	if (items) {
-		return <ScrollView style={styles.container}>{items && mapItems(items)}</ScrollView>;
+		if (items.length) {
+			return <ScrollView style={styles.container}>{items && mapItems(items)}</ScrollView>;
+		} else {
+			return (
+				<View style={styles.containerCenter}>
+					<Text>Nema pronađenih zapisa</Text>
+				</View>
+			);
+		}
 	} else {
 		return (
 			<View style={styles.containerCenter}>
