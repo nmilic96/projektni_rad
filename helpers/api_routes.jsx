@@ -17,13 +17,13 @@ https://www.ffos.unios.hr/projekti/glagopedija/API/v1/popisliterature
 */
 
 //root
-export const rootUrl = 'https://oziz.ffos.hr/nastava20192020/nmilic_19/v1';
+export const rootUrl = 'https://www.ffos.unios.hr/projekti/glagopedija/API/v1';
 // routes
 export const langs = '/jezici';
 export const groups = '/grupe?jezik=';
 export const group = (id, lang) => `/grupa?id=${id}&jezik=${lang}`;
 export const categories = (group, lang) => `/kategorije?grupa=${group}&jezik=${lang}`;
-export const category = (group, lang) => `/kategorije?grupa=${group}&jezik=${lang}`;
+export const category = (id, lang) => `/kategorija?id=${id}&jezik=${lang}`;
 export const records = (category, lang) => `/zapisi?kategorija=${category}&jezik=${lang}`;
 export const record = (id, lang) => `/zapis?id=${id}&jezik=${lang}`;
 export const messages = (lang) => `/poruke?jezik=${lang}`;

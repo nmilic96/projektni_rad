@@ -1,16 +1,16 @@
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { rootUrl, languages } from './helpers/api_routes';
-import Nav from './components/nav/nav.jsx';
+import React from 'react';
+import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Jezici from './views/jezici';
-import JezicneGrupe from './views/jezicne_grupe';
 import Home from './views/home';
-import Stavke from './views/stavke';
-import Stavka from './views/stavka';
+import { styles } from './styles/styles';
+import Langs from './views/langs';
+import Groups from './views/groups';
+import Categories from './views/categories';
+import Records from './views/records';
+import Record from './views/records';
 
 const Stack = createStackNavigator();
 
@@ -18,27 +18,16 @@ export default function App() {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
-				<Stack.Screen
-					name="Početna"
-					component={Home}
-				/>
-				<Stack.Screen
-					name="Jezici"
-					component={Jezici}
-				/>
-				<Stack.Screen
-					name="Jezične grupe"
-					component={JezicneGrupe}
-				/>
-				<Stack.Screen
-					name="Stavke"
-					component={Stavke}
-				/>
-				<Stack.Screen
-					name="Stavka"
-					component={Stavka}
-				/>
+				<Stack.Screen name="Odaberi jezik" component={Home} />
+				<Stack.Screen name="Jezici" component={Langs} />
+				<Stack.Screen name="Grupe" component={Groups} />
+				<Stack.Screen name="Kategorije" component={Categories} />
+				<Stack.Screen name="Zapisi" component={Records} />
+				<Stack.Screen name="Zapis" component={Record} />
 			</Stack.Navigator>
+			<View style={styles.footer}>
+				<Text>{new Date().getFullYear()}</Text>
+			</View>
 			<StatusBar style="auto" />
 		</NavigationContainer>
 	);

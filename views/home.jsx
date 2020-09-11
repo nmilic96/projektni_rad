@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Button, Text } from 'react-native';
-import Jezici from './jezici';
+import Langs from './langs';
 import { styles } from '../styles/styles';
 
 export default function Home({navigation}) {
 	return (
 		<View style={styles.container}>
-			<Jezici {...navigation} />
+			<Langs {...navigation} />
 		</View>
 	);
 };

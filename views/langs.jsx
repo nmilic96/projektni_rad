@@ -1,12 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Button, ActivityIndicator } from 'react-native';
-import { rootUrl, jezici } from '../helpers/api_routes';
+import { Text, View, ActivityIndicator } from 'react-native';
+import { rootUrl, langs } from '../helpers/api_routes';
 import { styles } from '../styles/styles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 
-export default function Jezici(props) {
-	let url = `${rootUrl}${jezici}`;
+export default function Langs(props) {
+	let url = `${rootUrl}${langs}`;
 	const [ items, setItems ] = useState(null);
 
 	useEffect(() => {
@@ -15,13 +14,12 @@ export default function Jezici(props) {
 
 	const mapItems = (items) => {
 		return items.map((item) => {
-			console.log(item);
 			return (
 				<TouchableOpacity
 					style={styles.btn}
 					onPress={() =>
-						props.navigate('Jezične grupe', {
-							id: item.id
+						props.navigate('Grupe', {
+							lang: item.id
 						})}
 					key={item.id}
 				>
@@ -32,7 +30,7 @@ export default function Jezici(props) {
 	};
 
 	if (items) {
-		return <React.Fragment>{items && mapItems(items)}</React.Fragment>;
+		return <View>{items && mapItems(items)}</View>;
 	} else {
 		return (
 			<View style={styles.containerCenter}>
