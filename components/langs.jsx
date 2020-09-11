@@ -16,21 +16,24 @@ export default function Langs(props) {
 		return items.map((item) => {
 			return (
 				<TouchableOpacity
-					style={styles.btn}
-					onPress={() =>
-						props.navigate('Grupe', {
-							lang: item.id
-						})}
+					onPress={() => {
+						props.setLang(item.id);
+						props.setModalVisible(!props.modalVisible);
+					}}
 					key={item.id}
 				>
-					<Text style={styles.btnText}>{item.naziv}</Text>
+					<Text
+						style={{ fontSize: 16, marginBottom: 24, fontWeight: props.lang === item.id ? '600' : '400' }}
+					>
+						{item.naziv}
+					</Text>
 				</TouchableOpacity>
 			);
 		});
 	};
 
 	if (items) {
-		return <View>{items && mapItems(items)}</View>;
+		return <View style={{ padding: 16 }}>{items && mapItems(items)}</View>;
 	} else {
 		return (
 			<View style={styles.containerCenter}>

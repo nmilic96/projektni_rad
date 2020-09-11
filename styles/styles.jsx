@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 import { color } from 'react-native-reanimated';
 
 let colorPrimary = '#FF5722';
+let colorSecondary = '#3F51B5';
 
 export const styles = StyleSheet.create({
 	footer: {
@@ -9,9 +10,35 @@ export const styles = StyleSheet.create({
 		paddingRight: 16,
 		paddingTop: 20,
 		paddingBottom: 20,
-		justifyContent: 'center',
+		justifyContent: 'space-between',
 		alignItems: 'stretch',
-		opacity: 0.5,
+		flexDirection: 'row'
+	},
+	footerLink: {
+		color: colorPrimary,
+		fontWeight: '600',
+		marginLeft: 14
+	},
+	row: {
+		flexDirection: 'row',
+		alignItems: 'center'
+	},
+	modal: {
+		alignSelf: 'stretch',
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 0,
+		zIndex: 2,
+		backgroundColor: '#FFF',
+		borderColor: '#FFF',
+		padding: 16
+		
+	},
+	closeBtn: {
+		padding: 16,
+		marginLeft: 'auto'
 	},
 	container: {
 		flex: 1,
@@ -37,8 +64,7 @@ export const styles = StyleSheet.create({
 		backgroundColor: colorPrimary,
 		marginBottom: 12,
 		justifyContent: 'center',
-		borderRadius: 6,
-
+		borderRadius: 6
 	},
 	btnSmall: {
 		alignSelf: 'stretch',

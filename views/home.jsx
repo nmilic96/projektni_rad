@@ -1,12 +1,14 @@
 import React from 'react';
 import { View, Button, Text } from 'react-native';
-import Langs from './langs';
 import { styles } from '../styles/styles';
+import Categories from './categories';
+import Groups from './groups';
 
-export default function Home({navigation}) {
+export default function Home(props) {
+	console.log(props)
 	return (
 		<View style={styles.container}>
-			<Langs {...navigation} />
+			<Groups {...props} />
 		</View>
 	);
 };

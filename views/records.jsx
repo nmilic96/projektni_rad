@@ -42,7 +42,15 @@ export default function Records(props) {
 	};
 
 	if (items) {
-		return <ScrollView style={styles.container}>{items && mapItems(items)}</ScrollView>;
+		if (items.length) {
+			return <ScrollView style={styles.container}>{items && mapItems(items)}</ScrollView>;
+		} else {
+			return (
+				<View style={styles.containerCenter}>
+					<Text>Nema pronađenih zapisa</Text>
+				</View>
+			);
+		}
 	} else {
 		return (
 			<View style={styles.containerCenter}>
