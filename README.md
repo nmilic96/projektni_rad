@@ -29,7 +29,7 @@ Klijent aplikacija dostupna je na GooglePlay i iTunes Store servisima:
 
 ## Zapakirana iOS verzija aplikacije
 Zapakiranu verziju aplikacije može se preuzeti:
-- https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/ios/%40nmilic96/projektni_zadatak-d8c1a1e0-b0e0-45f7-bb27-038ba5658903-simulator.tar.gz 
+- https://expo.io/artifacts/d066e022-2e18-47b3-8178-3b20763d9236
 
 Upute za pokretanje zapakirane inačice aplikacije u iOS simulatorima: 
 - https://docs.expo.io/distribution/building-standalone-apps/     
