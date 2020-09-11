@@ -6,7 +6,6 @@ import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 
 export default function Records(props) {
 	let url = `${rootUrl}${records(props.route.params.id, props.route.params.lang)}`;
-	console.log(url);
 	const [ items, setItems ] = useState(null);
 
 	useEffect(() => {
@@ -15,7 +14,6 @@ export default function Records(props) {
 
 	const mapItems = (items) => {
 		return items.map((item) => {
-			console.log(item);
 			return (
 				<View style={styles.card} key={item.id}>
 					<Text style={styles.year}>{item.godina}</Text>
@@ -30,10 +28,10 @@ export default function Records(props) {
 					<TouchableOpacity
 						style={styles.btnSmall}
 						onPress={() =>
-							props.navigate('Jezične grupe', {
+							props.navigation.navigate('Zapis', {
 								id: item.id,
 								category: item.kategorija,
-								lang: jezik
+								lang: item.jezik
 							})}
 					>
 						<Text style={styles.btnText}>Prikaži</Text>

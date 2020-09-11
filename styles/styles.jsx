@@ -5,11 +5,13 @@ let colorPrimary = '#FF5722';
 
 export const styles = StyleSheet.create({
 	footer: {
+		paddingLeft: 16,
+		paddingRight: 16,
 		paddingTop: 20,
 		paddingBottom: 20,
 		justifyContent: 'center',
-		alignItems: 'center',
-		opacity: 0.5
+		alignItems: 'stretch',
+		opacity: 0.5,
 	},
 	container: {
 		flex: 1,
@@ -77,25 +79,27 @@ export const styles = StyleSheet.create({
 	},
 	label: {
 		color: '#607D8B',
-		fontSize: 10
+		fontSize: 10,
+		marginBottom: 4,
+		textTransform: 'uppercase'
 	},
 	bigLabel: {
 		opacity: 0.8,
 		fontSize: 15,
 		marginBottom: 16,
-		fontWeight: 500
+		fontWeight: '500'
 	},
 	title: {
 		color: '#000',
 		fontSize: 22,
-		fontWeight: 600,
+		fontWeight: '600',
 		marginBottom: 4
 	},
 	year: {
 		color: colorPrimary,
 		fontSize: 13,
 		marginBottom: 5,
-		fontWeight: 600
+		fontWeight: '600'
 	},
 	p: {
 		fontSize: 14,

@@ -10,7 +10,7 @@ import Langs from './views/langs';
 import Groups from './views/groups';
 import Categories from './views/categories';
 import Records from './views/records';
-import Record from './views/records';
+import Record from './views/record';
 
 const Stack = createStackNavigator();
 
