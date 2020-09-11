@@ -39,3 +39,26 @@ Upute za pokretanje zapakirane inačice aplikacije u iOS simulatorima:
 - https://docs.expo.io/distribution/building-standalone-apps/     
 
 > To run it on your iOS Simulator, first build your expo project with the simulator flag by running ```expo build:ios -t simulator```, then download the tarball with the link given upon completion when running ```expo build:status```. Unpack the ```tar.gz``` by running ```tar -xvzf your-app.tar.gz```. Then you can run it by starting an iOS Simulator instance, then running ```xcrun simctl install booted <app path>``` and ```xcrun simctl launch booted <app identifier>```.
+  
+## API rute
+
+API rute nalaze se u ```helpers/api_routes.jsx```
+Pohranjene su u obliku ```const``` varijabli koje mogu primati argumente.
+
+```
+//root
+export const rootUrl = 'https://www.ffos.unios.hr/projekti/glagopedija/API/v1';
+// routes
+export const langs = '/jezici';
+export const groups = '/grupe?jezik=';
+export const group = (id, lang) => `/grupa?id=${id}&jezik=${lang}`;
+export const categories = (group, lang) => `/kategorije?grupa=${group}&jezik=${lang}`;
+export const category = (id, lang) => `/kategorija?id=${id}&jezik=${lang}`;
+export const records = (category, lang) => `/zapisi?kategorija=${category}&jezik=${lang}`;
+export const record = (id, lang) => `/zapis?id=${id}&jezik=${lang}`;
+export const messages = (lang) => `/poruke?jezik=${lang}`;
+export const message = (key, lang) => `poruka?kljuc=${key}&jezik=${lang}`;
+export const literature = `/popisliterature`;
+```
+
+ 
