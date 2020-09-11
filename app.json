@@ -22,6 +22,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "description": "Projektni rad ",
+    "githubUrl": "https://github.com/nmilic96/projektni_rad",
+    "android": {
+      "package": "com.nmilic96.projektni_zadatak"
     }
   }
 }
