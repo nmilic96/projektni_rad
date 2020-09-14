@@ -1,32 +1,47 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View, ActivityIndicator, Image } from 'react-native';
 import { rootUrl, group, categories } from '../helpers/api_routes';
 import { styles } from '../styles/styles';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
+import { useRef } from 'react';
 
 export default function Categories(props) {
 	console.log(props);
 	let url = `${rootUrl}${categories(props.route.params.id, props.route.params.lang)}`;
 	const [ items, setItems ] = useState(null);
+	const btnRef = useRef();
 
-	useEffect(() => {
-		fetch(url).then((response) => response.json()).then((data) => setItems(data));
-	}, [props]);
+	useEffect(
+		() => {
+			fetch(url).then((response) => response.json()).then((data) => setItems(data));
+		},
+		[ props ]
+	);
 
 	const mapItems = (items) => {
 		return items.map((item) => {
 			console.log(item);
 			return (
 				<TouchableOpacity
-					style={styles.btn}
+					ref={btnRef}
+					style={styles.btnImage}
 					onPress={() =>
 						props.navigation.navigate('Zapisi', {
+							group: props.route.params.id,
 							id: item.id,
 							lang: props.route.params.lang
 						})}
 					key={item.id}
 				>
-					<Text style={styles.btnText}>{item.naziv}</Text>
+					<Image
+						source={`https://www.ffos.unios.hr/projekti/glagopedija/public/img/grupa/${item.slikaPutanja}`}
+						style={{ alignSelf: 'stretch', height: 200 }}
+					/>
+					<Text
+						style={styles.btnImageLabel}
+					>
+						{item.naziv}
+					</Text>
 				</TouchableOpacity>
 			);
 		});

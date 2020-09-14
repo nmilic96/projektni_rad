@@ -5,8 +5,13 @@ import { styles } from '../styles/styles';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 
 export default function Records(props) {
+	console.log(props)
+
+
 	let url = `${rootUrl}${records(props.route.params.id, props.route.params.lang)}`;
 	const [ items, setItems ] = useState(null);
+
+	console.log(url)
 
 	useEffect(() => {
 		fetch(url).then((response) => response.json()).then((data) => setItems(data));

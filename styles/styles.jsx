@@ -66,6 +66,37 @@ export const styles = StyleSheet.create({
 		justifyContent: 'center',
 		borderRadius: 6
 	},
+	btnImage: {
+		alignSelf: 'stretch',
+		borderRadius: 6,
+		marginBottom: 12,
+		overflow: 'hidden',
+		position: 'relative',
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 0,
+			height: 2
+		},
+		shadowOpacity: 0.23,
+		shadowRadius: 2.62,
+		elevation: 4
+	},
+	btnImageLabel: {
+		left: 0,
+		right: 0,
+		bottom: 0,
+		height: 60,
+		alignSelf: 'stretch',
+		justifyContent: 'center',
+		alignItems: 'center',
+		textAlign: 'left',
+		textAlignVertical: 'center',
+		lineHeight: 60,
+		paddingLeft: 16,
+		backgroundColor: '#FFF',
+		color: '#FF5722',
+		fontWeight: '600'
+	},
 	btnSmall: {
 		alignSelf: 'stretch',
 		height: 32,
