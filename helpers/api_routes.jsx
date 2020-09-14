@@ -30,4 +30,3 @@ export const messages = (lang) => `/poruke?jezik=${lang}`;
 export const message = (key, lang) => `poruka?kljuc=${key}&jezik=${lang}`;
 export const literature = `/popisliterature`;
 
-export const categoryImage = (group, lang) => `kategorije?grupa=${gropup}&jezik=${lang}`;

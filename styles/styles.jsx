@@ -12,7 +12,10 @@ export const styles = StyleSheet.create({
 		paddingBottom: 20,
 		justifyContent: 'space-between',
 		alignItems: 'stretch',
-		flexDirection: 'row'
+		flexDirection: 'row',
+		borderTopColor: 'rgb(216, 216, 216)',
+		borderTopWidth: 1,
+		borderStyle: 'solid'
 	},
 	footerLink: {
 		color: colorPrimary,
@@ -94,7 +97,7 @@ export const styles = StyleSheet.create({
 		lineHeight: 60,
 		paddingLeft: 16,
 		backgroundColor: '#FFF',
-		color: '#FF5722',
+		color: colorPrimary,
 		fontWeight: '600'
 	},
 	btnSmall: {
