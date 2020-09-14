@@ -29,11 +29,11 @@ Klijent aplikacija dostupna je na GooglePlay i iTunes Store servisima:
 
 ## Zapakirana Android verzija 
 Može se preuzeti na: 
-- https://expo.io/artifacts/0422b3a3-ec40-4dd2-8883-52f510eda32d
+- https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40nmilic96/projektni_zadatak-8ba60ae7d5454d72a42cfc72079a8d2e-signed.apk
 
 ## Zapakirana iOS verzija aplikacije
 Zapakiranu verziju aplikacije može se preuzeti:
-- https://expo.io/artifacts/d066e022-2e18-47b3-8178-3b20763d9236
+- https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/ios/%40nmilic96/projektni_zadatak-8879572e-643b-415f-a144-f656500d48aa-simulator.tar.gz
 
 Upute za pokretanje zapakirane inačice aplikacije u iOS simulatorima: 
 - https://docs.expo.io/distribution/building-standalone-apps/     
