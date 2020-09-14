@@ -34,7 +34,7 @@ export default function Categories(props) {
 					key={item.id}
 				>
 					<Image
-						source={`https://www.ffos.unios.hr/projekti/glagopedija/public/img/grupa/${item.slikaPutanja}`}
+						source={{uri: `https://www.ffos.unios.hr/projekti/glagopedija/public/img/grupa/${item.slikaPutanja}`}}
 						style={{ alignSelf: 'stretch', height: 200 }}
 					/>
 					<Text
